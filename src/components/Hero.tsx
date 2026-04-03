@@ -1,5 +1,5 @@
 /**
- * Hero — Shader + Framer Motion (entrée orchestrée, ancres Lenis).
+ * Hero — Shader + Framer Motion (entrée orchestrée, ancres Lenis) + stats bar.
  */
 
 import { AnimatePresence, motion } from 'framer-motion';
@@ -42,10 +42,17 @@ const FOUNDERS: Founder[] = [
     role: 'Intelligence Artificielle · Eveyens',
     color: '#8b5cf6',
     description:
-      'Spécialiste en intelligence artificielle avec une solide expérience terrain (actuellement chez Eveyens). Alexandre développe des modèles sur mesure et automatise les processus complexes pour vous faire gagner des dizaines d’heures par semaine.',
+      'Spécialiste en intelligence artificielle avec une solide expérience terrain (actuellement chez Eveyens). Alexandre développe des modèles sur mesure et automatise les processus complexes pour vous faire gagner des dizaines d'heures par semaine.',
     strengths: ['Intégration LLM', 'Ingénierie Prompt', 'Workflows IA', 'Développement Full-Stack'],
     cta: 'Discuter technique avec Alexandre →',
   },
+];
+
+const STATS = [
+  { value: '48 h', label: 'délai de réponse max' },
+  { value: '100 %', label: 'projets livrés en temps' },
+  { value: '3×', label: 'plus de leads qualifiés en moyenne' },
+  { value: '0 €', label: "audit initial offert" },
 ];
 
 function FounderCard({ founder }: { founder: Founder }) {
@@ -120,6 +127,14 @@ export default function Hero() {
         initial="hidden"
         animate="show"
       >
+        {/* Badge */}
+        <motion.div variants={heroItem} className="mb-6">
+          <span className="inline-flex items-center gap-2 rounded-full border border-backyard-blue/20 bg-backyard-blue/8 px-4 py-1.5 text-xs font-medium text-backyard-blue-bright tracking-wide">
+            <span className="w-1.5 h-1.5 rounded-full bg-backyard-blue-bright animate-pulse" />
+            Audit gratuit · Réponse en 24 h
+          </span>
+        </motion.div>
+
         <motion.h1
           variants={heroItem}
           className="mb-5 text-4xl md:text-6xl lg:text-[3.35rem] font-extrabold leading-[1.08] tracking-tight text-white"
@@ -132,7 +147,7 @@ export default function Hero() {
           variants={heroItem}
           className="mb-10 max-w-2xl text-base md:text-lg text-gray-400 leading-relaxed font-light"
         >
-          L’IA et l’automatisation pour votre commerce physique — moins de frictions opérationnelles, plus
+          L'IA et l'automatisation pour votre commerce physique — moins de frictions opérationnelles, plus
           de marge et de visibilité là où vos clients cherchent.
         </motion.p>
 
@@ -160,6 +175,22 @@ export default function Hero() {
           >
             Voir nos services
           </SmoothAnchor>
+        </motion.div>
+
+        {/* Stats bar */}
+        <motion.div
+          variants={heroItem}
+          className="w-full max-w-2xl mb-14 grid grid-cols-2 sm:grid-cols-4 gap-px rounded-2xl overflow-hidden border border-backyard-border bg-backyard-border"
+        >
+          {STATS.map((stat) => (
+            <div
+              key={stat.value}
+              className="bg-backyard-surface/80 backdrop-blur-sm px-4 py-4 flex flex-col items-center text-center"
+            >
+              <span className="text-xl font-bold text-white tracking-tight">{stat.value}</span>
+              <span className="mt-1 text-[11px] text-gray-500 font-light leading-tight">{stat.label}</span>
+            </div>
+          ))}
         </motion.div>
 
         <motion.div variants={heroItem} className="w-full max-w-2xl">

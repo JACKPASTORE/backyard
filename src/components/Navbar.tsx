@@ -1,22 +1,61 @@
 /**
- * Navbar — ancres via Lenis (SmoothAnchor).
+ * Navbar — ancres via Lenis + active section highlight (IntersectionObserver).
  */
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SmoothAnchor from './SmoothAnchor';
 
 const NAV_LINKS = [
-  { label: 'Services', href: '#services' },
-  { label: 'Processus', href: '#processus' },
-  { label: 'Pourquoi nous', href: '#pourquoi-backyard' },
-  { label: 'Tarifs', href: '#tarifs' },
+  { label: 'Services', href: '#services', id: 'services' },
+  { label: 'Processus', href: '#processus', id: 'processus' },
+  { label: 'Pourquoi nous', href: '#pourquoi-backyard', id: 'pourquoi-backyard' },
+  { label: 'Tarifs', href: '#tarifs', id: 'tarifs' },
 ];
+
+function useActiveSection(ids: string[]) {
+  const [active, setActive] = useState('');
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActive(id);
+        },
+        { rootMargin: '-30% 0px -60% 0px', threshold: 0 },
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
+  }, [ids]);
+
+  return active;
+}
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const activeSection = useActiveSection(NAV_LINKS.map((l) => l.id));
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-backyard-border bg-backyard-bg/80 backdrop-blur-md">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${
+        scrolled
+          ? 'border-backyard-border bg-backyard-bg/90 backdrop-blur-md shadow-[0_1px_24px_rgba(0,0,0,0.4)]'
+          : 'border-transparent bg-backyard-bg/60 backdrop-blur-sm'
+      }`}
+    >
       <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
         <a href="/" className="flex items-center gap-2 group">
           <div className="w-8 h-8 bg-backyard-blue rounded-sm flex items-center justify-center">
@@ -34,9 +73,14 @@ export default function Navbar() {
             <SmoothAnchor
               key={link.href}
               href={link.href}
-              className="text-sm text-gray-400 hover:text-white transition-colors duration-200 font-medium"
+              className={`relative text-sm font-medium transition-colors duration-200 ${
+                activeSection === link.id ? 'text-white' : 'text-gray-400 hover:text-white'
+              }`}
             >
               {link.label}
+              {activeSection === link.id && (
+                <span className="absolute -bottom-1 left-0 right-0 h-px bg-backyard-blue-bright rounded-full" />
+              )}
             </SmoothAnchor>
           ))}
         </nav>
@@ -67,7 +111,9 @@ export default function Navbar() {
             <SmoothAnchor
               key={link.href}
               href={link.href}
-              className="text-sm text-gray-400 hover:text-white transition-colors font-medium"
+              className={`text-sm font-medium transition-colors ${
+                activeSection === link.id ? 'text-white' : 'text-gray-400 hover:text-white'
+              }`}
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
