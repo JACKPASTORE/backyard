@@ -1,5 +1,5 @@
 /**
- * Lien d’ancre : scroll fluide Lenis (évite le saut natif).
+ * Lien d'ancre : scroll fluide Lenis (évite le saut natif).
  */
 
 import type { ComponentProps, MouseEvent } from 'react';

@@ -42,7 +42,7 @@ const FOUNDERS: Founder[] = [
     role: 'Intelligence Artificielle · Eveyens',
     color: '#8b5cf6',
     description:
-      'Spécialiste en intelligence artificielle avec une solide expérience terrain (actuellement chez Eveyens). Alexandre développe des modèles sur mesure et automatise les processus complexes pour vous faire gagner des dizaines d'heures par semaine.',
+      `Spécialiste en intelligence artificielle avec une solide expérience terrain (actuellement chez Eveyens). Alexandre développe des modèles sur mesure et automatise les processus complexes pour vous faire gagner des dizaines d'heures par semaine.`,
     strengths: ['Intégration LLM', 'Ingénierie Prompt', 'Workflows IA', 'Développement Full-Stack'],
     cta: 'Discuter technique avec Alexandre →',
   },

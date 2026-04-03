@@ -10,12 +10,12 @@ const STEPS = [
   {
     n: '01',
     title: 'Audit technique',
-    desc: 'Jack & Alexandre co-réalisent l’audit : données, SEO local, stack et points de friction client.',
+    desc: `Jack & Alexandre co-réalisent l'audit : données, SEO local, stack et points de friction client.`,
   },
   {
     n: '02',
     title: 'Architecture',
-    desc: 'Jack & Alexandre conçoivent l’architecture : parcours, workflows et intégrations — un seul fil direct.',
+    desc: `Jack & Alexandre conçoivent l'architecture : parcours, workflows et intégrations — un seul fil direct.`,
   },
   {
     n: '03',
@@ -25,7 +25,7 @@ const STEPS = [
   {
     n: '04',
     title: 'Optimisation continue',
-    desc: 'Jack & Alexandre itèrent avec vous : métriques, scaling et ajustements jusqu’à la performance cible.',
+    desc: `Jack & Alexandre itèrent avec vous : métriques, scaling et ajustements jusqu'à la performance cible.`,
   },
 ];
 
@@ -43,7 +43,7 @@ export default function ProcessusSection() {
         viewport={inViewOnce}
       >
         <motion.div variants={popInFromLeft}>
-          <SectionHeading title="De l’audit au scaling : une méthode unique, à quatre temps." />
+          <SectionHeading title="De l'audit au scaling : une méthode unique, à quatre temps." />
         </motion.div>
 
         <div className="relative max-w-2xl mx-auto lg:mx-0 lg:max-w-none">

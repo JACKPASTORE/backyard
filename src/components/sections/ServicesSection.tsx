@@ -47,7 +47,7 @@ const CARDS = [
       </svg>
     ),
     title: 'IA Sur-Mesure',
-    body: 'Agents vocaux, LLM privés et workflows intelligents — disponibles quand vous ne l'êtes pas.',
+    body: `Agents vocaux, LLM privés et workflows intelligents — disponibles quand vous ne l'êtes pas.`,
     tag: 'Disponible 24 / 7',
     glow: 'purple' as const,
     className: 'lg:col-span-2 min-h-[180px]',

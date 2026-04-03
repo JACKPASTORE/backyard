@@ -17,7 +17,7 @@ const PAIN_POINTS = [
     color: '#3b82f6',
     hook: 'Si vous en avez marre de perdre 10 h / semaine à confirmer des RDV à la main…',
     outcome:
-      'Des flux automatisés libèrent du temps vendeur et réduisent les oublis — vous vous concentrez sur l'accueil et la caisse.',
+      `Des flux automatisés libèrent du temps vendeur et réduisent les oublis — vous vous concentrez sur l'accueil et la caisse.`,
   },
   {
     icon: (
@@ -30,7 +30,7 @@ const PAIN_POINTS = [
     color: '#8b5cf6',
     hook: 'Si votre site est lent ou invisible sur Google Maps…',
     outcome:
-      'La perf web et le SEO local ne sont pas du luxe : ils décident si un client vous trouve avant le concurrent d'à côté.',
+      `La perf web et le SEO local ne sont pas du luxe : ils décident si un client vous trouve avant le concurrent d'à côté.`,
   },
   {
     icon: (
@@ -56,7 +56,7 @@ const PAIN_POINTS = [
     color: '#8b5cf6',
     hook: 'Si vous voulez être joignable « comme un grand groupe » sans embaucher la nuit…',
     outcome:
-      'L'IA et la voix sur-mesure peuvent qualifier une demande, prendre un message ou orienter — selon vos règles, vos données.',
+      `L'IA et la voix sur-mesure peuvent qualifier une demande, prendre un message ou orienter — selon vos règles, vos données.`,
   },
 ];
 
