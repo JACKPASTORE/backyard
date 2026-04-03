@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat /Users/alicepastore/Desktop/ventesiteweb/segments/Backyard/.claude/agents/*.md)",
+      "Bash(npx tsc:*)",
+      "Bash(node_modules/.bin/tsc --noEmit --skipLibCheck)",
+      "Bash(npm run:*)",
+      "Bash(echo \"PID: $!\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173)",
+      "Bash(node_modules/.bin/vite --port 5173)",
+      "Bash(node_modules/.bin/vite)",
+      "Bash(VPID=$! sleep 8 lsof -i :5173 -i :5174)",
+      "Bash(kill -0 531)",
+      "Bash(tee /tmp/vite-mariton.log)",
+      "Read(//tmp/**)",
+      "Bash(/Users/alicepastore/Desktop/ventesiteweb/segments/site-mariton/node_modules/.bin/vite --root /Users/alicepastore/Desktop/ventesiteweb/segments/site-mariton)",
+      "Bash(tee /tmp/vite-m.log)",
+      "Bash(/Users/alicepastore/Desktop/ventesiteweb/segments/site-mariton/node_modules/.bin/vite --root /Users/alicepastore/Desktop/ventesiteweb/segments/site-mariton --port 5173)",
+      "Bash(lsof -i -sTCP:LISTEN -n -P)",
+      "Bash(osascript -e 'tell application \"Terminal\" to do script \"cd '\\\\''/Users/alicepastore/Desktop/ventesiteweb/segments/site-mariton'\\\\'' && npm run dev\"')"
+    ]
+  }
+}

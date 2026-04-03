@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  html.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  body {
+    background-color: #070810;
+    color: #f9fafb;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .opacity-init {
+    opacity: 0;
+  }
+
+  /* Subtle grid background */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(59, 130, 246, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Blue glow for CTA */
+  .glow-blue {
+    box-shadow: 0 0 24px rgba(59, 130, 246, 0.35), 0 0 60px rgba(59, 130, 246, 0.12);
+  }
+
+  /* Founder card tab active ring */
+  .tab-ring-active {
+    box-shadow: 0 0 0 2px #3b82f6, 0 0 12px rgba(59, 130, 246, 0.4);
+  }
+
+  /* Pricing highlight (colonne centrale) */
+  .glow-pricing {
+    box-shadow:
+      0 0 0 1px rgba(59, 130, 246, 0.35),
+      0 0 48px rgba(59, 130, 246, 0.12),
+      0 0 80px rgba(139, 92, 246, 0.08);
+  }
+
+  /* Numéros timeline */
+  .glow-step-num {
+    box-shadow:
+      0 0 20px rgba(59, 130, 246, 0.45),
+      0 0 40px rgba(139, 92, 246, 0.2);
+  }
+}
